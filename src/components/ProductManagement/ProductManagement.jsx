@@ -8,7 +8,7 @@ const ProductManagement = () => {
     const handleAddProduct = (newProduct) => {
         const newProducts = [...products, newProduct];
         setProducts(newProducts);
-        console.log(newProducts);
+        // console.log(newProducts);
     };
 
     return (

@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ProductForm = ({ handleAddProduct }) => {
+    const [error, setError] = useState("");
+
     const handleProductSubmit = (e) => {
         e.preventDefault();
 
         // i cerate reuseable function for geting field value
         const getValue = (name) => e.target[name].value;
 
+        const name = getValue("name");
+        const price = getValue("price");
+        const quantity = getValue("quantity");
+
+        if (name.length === 0) {
+            setError("Please provide valid Name");
+            return;
+        } else if (price.length === 0) {
+            setError("Please provide valid Price");
+            return;
+        } else if (price < 0) {
+            setError("Price can't be nagative");
+            return;
+        } else if (quantity.length === 0) {
+            setError("Please provide valid Quantity");
+            return;
+        } else if (quantity < 0) {
+            setError("Quantity can't be nagative");
+            return;
+        } else {
+            setError("");
+        }
+
         // new product data
         const newProduct = {
-            name: getValue("name"),
-            price: getValue("price"),
-            quantity: getValue("quantity"),
+            name,
+            price,
+            quantity,
         };
         // console.log(newProduct);
         handleAddProduct(newProduct);
@@ -51,6 +76,9 @@ const ProductForm = ({ handleAddProduct }) => {
                     value="Submit"
                 />
             </form>
+            <p className="text-red-500">
+                <small>{error}</small>
+            </p>
         </div>
     );
 };
