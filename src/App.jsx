@@ -1,5 +1,6 @@
 import "./App.css";
 import ControlledField from "./components/ControlledField/ControlledField";
+import FamilyTree from "./components/FamilyTree/FamilyTree";
 import FormAction from "./components/FormAction/FormAction";
 import HookFrom from "./components/HookFrom/HookFrom";
 import ProductManagement from "./components/ProductManagement/ProductManagement";
@@ -9,13 +10,16 @@ import UncontrolledField from "./components/UncontrolledField/UncontrolledField"
 function App() {
     return (
         <div className="flex flex-col items-center justify-center">
-            <h1 className="text-center mt-10 text-5xl">Explore React Form</h1>
+            <h1 className="text-center mt-10 mb-5 text-5xl">
+                Explore React Form
+            </h1>
             {/* <SimpleForm></SimpleForm> */}
             {/* <FormAction></FormAction> */}
             {/* <ControlledField></ControlledField> */}
             {/* <UncontrolledField></UncontrolledField> */}
             {/* <HookFrom></HookFrom> */}
-            <ProductManagement></ProductManagement>
+            {/* <ProductManagement></ProductManagement> */}
+            <FamilyTree></FamilyTree>
         </div>
     );
 }
